@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+:root {
+  --background: #10100f;
+  --foreground: #9FA09A;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", Arial, Helvetica, sans-serif;
+  --font-mono: "Courier New", monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.modal-overlay {
+  animation: modal-overlay-in 180ms ease-out both;
+}
+
+.modal-popup {
+  animation: modal-popup-in 220ms ease-out both;
+}
+
+@keyframes modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-section {
+  min-height: calc(100svh - 89px);
+}
+
+.hero-shell {
+  min-height: calc(100svh - 89px);
+  padding-bottom: clamp(3.25rem, 6vh, 4.5rem);
+  padding-top: 0;
+}
+
+.hero-copy {
+  transform: translateY(clamp(-1.5rem, -2vh, -0.5rem));
+}
+
+.hero-kicker {
+  font-size: clamp(2rem, 4.3vw, 4.25rem);
+  margin-bottom: clamp(0.65rem, 1.8vh, 1rem);
+}
+
+.hero-title {
+  font-size: clamp(1.45rem, 2.55vw, 2.65rem);
+}
+
+.hero-description {
+  font-size: clamp(0.9rem, 1.05vw, 0.98rem);
+  margin-top: clamp(0.8rem, 1.8vh, 1.15rem);
+}
+
+.hero-tags {
+  margin-top: clamp(0.9rem, 2vh, 1.35rem);
+}
+
+.hero-cta {
+  margin-top: clamp(1rem, 2.2vh, 1.4rem);
+}
+
+.hero-tag {
+  padding-bottom: clamp(0.4rem, 0.9vh, 0.5rem);
+  padding-top: clamp(0.4rem, 0.9vh, 0.5rem);
+}
+
+.hero-portrait {
+  height: min(60svh, 500px);
+  max-height: calc(100svh - 178px);
+  min-height: 360px;
+  transform: translateY(clamp(-1rem, -1.5vh, -0.25rem));
+}
+
+.hero-down-arrow {
+  animation: hero-arrow-drop 3s ease-in-out infinite;
+  bottom: clamp(1.35rem, 3vh, 2rem);
+}
+
+@keyframes hero-arrow-drop {
+  0%,
+  58%,
+  100% {
+    transform: translateY(0);
+  }
+
+  72% {
+    transform: translateY(10px);
+  }
+
+  86% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-height: 820px) and (min-width: 1024px) {
+  .hero-shell {
+    gap: 1.25rem;
+    padding-bottom: 3.25rem;
+    padding-top: 0;
+  }
+
+  .hero-copy {
+    transform: translateY(-1.1rem);
+  }
+
+  .hero-kicker {
+    font-size: clamp(1.8rem, 3.8vw, 3.6rem);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.35rem, 2.25vw, 2.25rem);
+  }
+
+  .hero-description {
+    line-height: 1.55;
+    margin-top: 0.75rem;
+  }
+
+  .hero-tags {
+    margin-top: 0.8rem;
+  }
+
+  .hero-cta {
+    margin-top: 0.85rem;
+  }
+
+  .hero-tag {
+    padding-bottom: 0.35rem;
+    padding-top: 0.35rem;
+  }
+
+  .hero-portrait {
+    height: min(55svh, 420px);
+    max-height: calc(100svh - 198px);
+    min-height: 330px;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 1024px) {
+  .hero-shell {
+    padding-bottom: 2.75rem;
+    padding-top: 0;
+  }
+
+  .hero-kicker {
+    font-size: clamp(1.65rem, 3.35vw, 3.1rem);
+  }
+
+  .hero-title {
+    font-size: clamp(1.25rem, 2vw, 2rem);
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+  }
+
+  .hero-cta {
+    margin-top: 0.75rem;
+  }
+
+  .hero-portrait {
+    height: min(52svh, 370px);
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-section,
+  .hero-shell {
+    min-height: auto;
+  }
+
+  .hero-shell {
+    padding-bottom: 5rem;
+    padding-top: 2rem;
+  }
+
+  .hero-copy {
+    transform: none;
+  }
+
+  .hero-kicker {
+    font-size: clamp(2rem, 9vw, 3.8rem);
+  }
+
+  .hero-title {
+    font-size: clamp(1.45rem, 5vw, 2.25rem);
+  }
+
+  .hero-portrait {
+    height: min(58svh, 500px);
+    min-height: 360px;
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-shell {
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-kicker {
+    font-size: clamp(1.85rem, 12vw, 3rem);
+    letter-spacing: 0.08em;
+  }
+
+  .hero-description {
+    line-height: 1.6;
+  }
+
+  .hero-cta {
+    margin-top: 0.9rem;
+  }
+
+  .hero-portrait {
+    height: 260px;
+    margin-top: 0.5rem;
+    min-height: 0;
+  }
+
+  .hero-down-arrow {
+    bottom: 1rem;
+  }
+}
